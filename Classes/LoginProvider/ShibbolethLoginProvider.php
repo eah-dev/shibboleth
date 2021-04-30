@@ -18,6 +18,7 @@ namespace TrustCnct\Shibboleth\LoginProvider;
 use TYPO3\CMS\Backend\Controller\LoginController;
 use TYPO3\CMS\Backend\LoginProvider\LoginProviderInterface;
 use TYPO3\CMS\Backend\LoginProvider\UsernamePasswordLoginProvider;
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\View\StandaloneView;
@@ -59,7 +60,7 @@ class ShibbolethLoginProvider extends UsernamePasswordLoginProvider
         }
 
         parent::render($view,$pageRenderer,$loginController);
-        $templatePathAndFilename = GeneralUtility::getFileAbsFileName(PATH_site . $extConf['BE_loginTemplatePath']);
+        $templatePathAndFilename = GeneralUtility::getFileAbsFileName(Environment::getPublicPath() . '/' . $extConf['BE_loginTemplatePath']);
         if (is_file($templatePathAndFilename)) {
             $view->setTemplatePathAndFilename($templatePathAndFilename);
             $newLayoutRootPaths = $view->getLayoutRootPaths();
