@@ -64,22 +64,16 @@ if ($EXT_CONFIG['BE_enable']) {
 	$GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems'][1435433111] = \TrustCnct\Shibboleth\Toolbar\UserToolbarItem::class;
 }
 
-$TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_userauth.php']['writeDevLog'] = FALSE;
-$TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_userauth.php']['writeDevLogFE'] = FALSE;
-$TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_userauth.php']['writeDevLogBE'] = FALSE;
-$TYPO3_CONF_VARS['SC_OPTIONS']['shibboleth/lib/class.tx_shibboleth_userhandler.php']['writeMoreDevLog'] = FALSE;
-
-if ($EXT_CONFIG['FE_devLog']) {
-	$TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_userauth.php']['writeDevLogFE'] = TRUE;
+if ($EXT_CONFIG['debugLog']) {
+    $GLOBALS['TYPO3_CONF_VARS']['LOG']['TrustCnct']['Shibboleth']['writerConfiguration'] = [
+        \TYPO3\CMS\Core\Log\LogLevel::DEBUG => [
+            'TYPO3\\CMS\\Core\\Log\\Writer\\FileWriter' => [
+            ]
+        ],
+    ];
 }
 
-if ($EXT_CONFIG['BE_devLog']) {
-	$TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_userauth.php']['writeDevLogBE'] = TRUE;
-}
 
-if ($EXT_CONFIG['database_devLog']) {
-	$TYPO3_CONF_VARS['SC_OPTIONS']['shibboleth/lib/class.tx_shibboleth_userhandler.php']['writeMoreDevLog'] = TRUE;
-}
 
 
 
