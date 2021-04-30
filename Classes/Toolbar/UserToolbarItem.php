@@ -141,7 +141,7 @@ class UserToolbarItem extends \TYPO3\CMS\Backend\Backend\ToolbarItems\UserToolba
         if (!$this->isShibbolethUser()) {
             return '';
         }
-		$extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$this->EXTKEY]);
+        $extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['shibboleth'];
 		$redirect_url = trim($extConf['BE_logoutRedirectUrl']);
 		if (strpos($redirect_url,'Logout?return=') === FALSE) {
 			$redirect_url = '/'.trim($extConf['sessions_handlerURL']).'/Logout?return='.$redirect_url;

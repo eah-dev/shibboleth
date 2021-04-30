@@ -73,7 +73,7 @@ class ShibbolethAuthentificationService extends \TYPO3\CMS\Sv\AbstractAuthentica
         // If there's no reason for initialization you can remove this function.
 
         global $TYPO3_CONF_VARS;
-        $this->shibboleth_extConf = unserialize($TYPO3_CONF_VARS['EXT']['extConf']['shibboleth']);
+        $this->shibboleth_extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['shibboleth'];
 
         $shortestPrefixLength = 65535;
         foreach ($_SERVER as $serverEnvKey => $serverEnvValue) {

@@ -16,7 +16,7 @@ class LoginUrlService
 
     public function __construct()
     {
-        $this->extConf =  unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['shibboleth']);
+        $this->extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['shibboleth'];;
 
     }
 

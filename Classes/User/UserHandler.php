@@ -64,7 +64,7 @@ class UserHandler implements LoggerAwareInterface
 	function __construct($loginType, $db_user, $db_group, $shibSessionIdKey, $envShibPrefix = '') {
 		global $TYPO3_CONF_VARS;
 
-        $this->shibboleth_extConf = unserialize($TYPO3_CONF_VARS['EXT']['extConf']['shibboleth']);
+        $this->shibboleth_extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['shibboleth'];
 
         $this->loginType = $loginType;
         $this->db_user = $db_user;

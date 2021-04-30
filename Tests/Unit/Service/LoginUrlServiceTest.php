@@ -21,12 +21,12 @@ class LoginUrlServiceTest extends \Nimut\TestingFramework\TestCase\UnitTestCase
     protected function setUp()
     {
         parent::setUp();
-        $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['shibboleth'] = serialize($this->testExtConf);
+        $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['shibboleth'] = serialize($this->testExtConf);
     }
 
     protected function tearDown()
     {
-        unset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['shibboleth']);
+        unset($GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['shibboleth']);
         parent::tearDown();
     }
 

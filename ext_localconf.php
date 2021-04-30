@@ -3,11 +3,12 @@ if (!defined ('TYPO3_MODE')) {
  	die ('Access denied.');
 }
 
-$TYPO3_CONF_VARS['SVCONF']['auth']['setup']['FE_fetchUserIfNoSession'] = '1';
-$TYPO3_CONF_VARS['SVCONF']['auth']['setup']['BE_fetchUserIfNoSession'] = '1';
+$GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['FE_fetchUserIfNoSession'] = '1';
+$GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_fetchUserIfNoSession'] = '1';
+
 
 // Configuration of authentication service.
-$EXT_CONFIG = unserialize($TYPO3_CONF_VARS['EXT']['extConf']['shibboleth']);
+$EXT_CONFIG = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['shibboleth'];
 
 if ($EXT_CONFIG['enableAlwaysFetchUser']) {
 	// Activate the following two lines, in case you want to give your Shibboleth-SP
@@ -17,8 +18,8 @@ if ($EXT_CONFIG['enableAlwaysFetchUser']) {
 	// Additionally, this will imply a strange behaviour of the Logout button as well as
 	// the BE timeout warning window.
 
-	$TYPO3_CONF_VARS['SVCONF']['auth']['setup']['FE_alwaysFetchUser'] = '1'; // default
-	$TYPO3_CONF_VARS['SVCONF']['auth']['setup']['BE_alwaysFetchUser'] = '1'; // default
+	$GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['FE_alwaysFetchUser'] = '1'; // default
+	$GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_alwaysFetchUser'] = '1'; // default
 }
 
 if ($EXT_CONFIG['FE_enable']) {

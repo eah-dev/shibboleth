@@ -32,7 +32,7 @@ class ShibbolethLoginProvider extends UsernamePasswordLoginProvider
 {
     public function render(StandaloneView $view, PageRenderer $pageRenderer, LoginController $loginController)
     {
-        $extConf =  unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['shibboleth']);
+        $extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['shibboleth'];
 
         if (GeneralUtility::_GET('redirecttoshibboleth') == 'yes') {
             // Redirect to Shibboleth login
