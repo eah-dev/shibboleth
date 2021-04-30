@@ -1,5 +1,6 @@
 <?php
 namespace TrustCnct\Shibboleth\Tests\Unit\Controller;
+use TYPO3\CMS\Extbase\Annotation\Inject;
 
 /**
  * Test case.
@@ -12,8 +13,8 @@ class LoginLinkControllerTest extends \Nimut\TestingFramework\TestCase\UnitTestC
     protected $subject = null;
 
     /**
+     * @Inject
      * @var \TrustCnct\Shibboleth\Service\LoginUrlService
-     * @inject
      */
     protected $loginUrlService;
 

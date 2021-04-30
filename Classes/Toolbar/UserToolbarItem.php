@@ -11,11 +11,12 @@ namespace TrustCnct\Shibboleth\Toolbar;
  * @subpackage    tx_shibboleth
  */
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Backend\Domain\Repository\Module\BackendModuleRepository;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
+use TYPO3\CMS\Extbase\Annotation\Inject;
 
 class UserToolbarItem extends \TYPO3\CMS\Backend\Backend\ToolbarItems\UserToolbarItem {
 
@@ -32,8 +33,8 @@ class UserToolbarItem extends \TYPO3\CMS\Backend\Backend\ToolbarItems\UserToolba
     protected $backendReference;
 
     /**
+     * @Inject
      * @var \TYPO3\CMS\Core\Imaging\IconFactory $iconFactory
-     * @inject
      */
     protected $iconFactory;
 

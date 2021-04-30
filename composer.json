@@ -16,7 +16,7 @@
     }
   },
   "require": {
-    "typo3/cms": ">=8.7.0"
+    "typo3/cms": ">=9.5.0"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.8.0",
